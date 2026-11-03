@@ -1,7 +1,9 @@
 import { Bell, LogInIcon, Rabbit, Shield, TrendingDown } from "lucide-react";
 import Image from "next/image";
+import AddUserForm from "../components/AddUserForm"
 
 export default function Home() {
+  const user=null;
   const FEATURES = [
     {
       if: 1,
@@ -71,21 +73,7 @@ export default function Home() {
           </p>
 
           {/* URL Input Form */}
-          <form className="mt-9 flex w-full max-w-2xl flex-col gap-3 sm:flex-row">
-            <input
-              type="url"
-              placeholder="Paste product URL (Amazon, Walmart, etc.)"
-              className="min-w-0 flex-1 rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder-gray-400"
-            />
-
-            <button
-              type="button"
-              className="flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600"
-            >
-              <TrendingDown size={18} />
-              Track Price
-            </button>
-          </form>
+          <AddUserForm user={user}/>
 
           <p className="mt-4 text-sm text-gray-500">
             Start tracking your favorite products for free.
