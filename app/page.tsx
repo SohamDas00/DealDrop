@@ -1,5 +1,6 @@
 import { Bell, LogInIcon, Rabbit, Shield, TrendingDown } from "lucide-react";
 import Image from "next/image";
+import AuthButton from "../components/AuthButton"
 import AddUserForm from "../components/AddUserForm"
 
 export default function Home() {
@@ -41,13 +42,7 @@ export default function Home() {
               className="h-auto w-32 object-contain sm:w-40"
             />
           </a>
-          <button
-            type="button"
-            className="flex items-center gap-2 rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-orange-600 sm:px-5"
-          >
-            <LogInIcon size={18} />
-            Sign In
-          </button>
+          <AuthButton user={user}/>
         </nav>
       </header>
 
