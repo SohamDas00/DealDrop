@@ -2,9 +2,11 @@ import { Bell, LogInIcon, Rabbit, Shield, TrendingDown } from "lucide-react";
 import Image from "next/image";
 import AuthButton from "../components/AuthButton"
 import AddUserForm from "../components/AddUserForm"
+import { createClient } from "@/utils/superbase/server";
 
-export default function Home() {
-  const user=null;
+export default async function Home() {
+  const superbase=await createClient();
+  const {data:{user}}=await superbase.auth.getUser();
   const FEATURES = [
     {
       if: 1,
