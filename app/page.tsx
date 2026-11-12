@@ -1,4 +1,4 @@
-import { Bell, LogInIcon, Rabbit, Shield, TrendingDown } from "lucide-react";
+import { Bell, LogInIcon, Rabbit, Shield, TrendingDown, TrendingDownIcon } from "lucide-react";
 import Image from "next/image";
 import AuthButton from "../components/AuthButton"
 import AddUserForm from "../components/AddUserForm"
@@ -7,6 +7,7 @@ import { createClient } from "@/utils/superbase/server";
 export default async function Home() {
   const superbase=await createClient();
   const {data:{user}}=await superbase.auth.getUser();
+  const products=[];
   const FEATURES = [
     {
       if: 1,
@@ -102,6 +103,23 @@ export default async function Home() {
           </div>
         </div>
       </section>
+            {/* Empty State */}
+      {user && products.length === 0 && (
+        <section className="px-4 pb-20">
+          <div className="mx-auto flex max-w-4xl flex-col items-center rounded-2xl border-2 border-dashed border-gray-300 bg-white p-12 text-center">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-50">
+              <TrendingDown className="h-6 w-6 text-red-500" />
+            </div>
+            <h2 className="text-lg font-semibold text-gray-900">
+              No products yet
+            </h2>
+            <p className="mt-1 text-sm text-gray-500">
+              Add your first product above to start tracking prices!
+            </p>
+          </div>
+        </section>
+      )}
+
     </main>
   );
 }
